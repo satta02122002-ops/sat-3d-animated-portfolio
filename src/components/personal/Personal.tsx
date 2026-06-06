@@ -1,0 +1,111 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Linkedin, Mail, MapPin, Phone, Languages, BadgeCheck } from "lucide-react";
+import { profile } from "@/data/portfolio";
+
+export function Personal() {
+  return (
+    <section id="personal" className="section relative overflow-hidden">
+      <div className="absolute inset-0 -z-10 grid-bg opacity-15" />
+      <div className="absolute left-1/2 top-0 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-electric/10 blur-[120px]" />
+      <div className="container-x">
+        <div className="grid items-center gap-10 lg:grid-cols-[400px_1fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7 }}
+            className="relative mx-auto h-[380px] w-[300px]"
+          >
+            {/* Holographic frame */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-[2rem] border border-electric/20"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, rgba(34,211,238,0.0), rgba(34,211,238,0.4), rgba(96,165,250,0.4), rgba(167,139,250,0.4), rgba(34,211,238,0.0))",
+                maskImage:
+                  "linear-gradient(#000,transparent)",
+              }}
+            />
+            <div className="absolute inset-[2px] overflow-hidden rounded-[1.95rem] glass-strong">
+              {/* Initials avatar (no remote image dependency) */}
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-navy via-midnight to-navy-50">
+                <div className="relative">
+                  <motion.div
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute -inset-8 rounded-full bg-electric/20 blur-3xl"
+                  />
+                  <div className="relative flex h-44 w-44 items-center justify-center rounded-full bg-gradient-to-br from-electric to-electric-glow font-display text-6xl font-bold text-midnight shadow-[0_20px_60px_-10px_rgba(34,211,238,0.6)]">
+                    SC
+                  </div>
+                </div>
+              </div>
+              {/* HUD overlay */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute left-3 top-3 font-mono text-[9px] uppercase tracking-[0.3em] text-electric">
+                  ID · SC-001
+                </div>
+                <div className="absolute right-3 top-3 flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.3em] text-electric">
+                  <span className="h-1 w-1 animate-pulse rounded-full bg-electric" /> Online
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.3em] text-electric">
+                  <span>Dubai · 25.20°N</span>
+                  <span>55.27°E</span>
+                </div>
+                {/* Scan line */}
+                <div className="absolute left-0 right-0 h-px bg-electric/40 animate-scan-line" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-electric">
+              Executive Profile
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-silver-50 sm:text-4xl">
+              {profile.name}
+            </h2>
+            <p className="mt-2 text-base text-electric">{profile.title}</p>
+            <p className="text-sm text-silver-300">{profile.subtitle}</p>
+
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
+                <MapPin size={16} className="text-electric" /> {profile.location}
+              </li>
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
+                <BadgeCheck size={16} className="text-electric" /> UAE Resident (Active)
+              </li>
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
+                <Phone size={16} className="text-electric" /> {profile.phone}
+              </li>
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
+                <Mail size={16} className="text-electric" />
+                <a href={`mailto:${profile.email}`} className="hover:text-electric">
+                  {profile.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
+                <Linkedin size={16} className="text-electric" />
+                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-electric">
+                  linkedin.com/in/sat-logistics
+                </a>
+              </li>
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
+                <Languages size={16} className="text-electric" /> Tamil · English · Malayalam · Hindi
+              </li>
+            </ul>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

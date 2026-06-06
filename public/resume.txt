@@ -1,0 +1,2 @@
+Replace this file with `resume.pdf` to enable the "Download Resume" button.
+The site references /resume.pdf via the Download Resume buttons in the Hero and Navbar.
