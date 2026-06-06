@@ -56,12 +56,12 @@ export function Navbar() {
                 Sattanathan<span className="text-electric">.</span>
               </span>
             </a>
-            <nav className="hidden items-center gap-1 lg:flex">
+            <nav className="hidden items-center gap-0.5 lg:flex">
               {links.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
-                  className="rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-silver-300 transition-colors hover:bg-electric/10 hover:text-electric"
+                  className="rounded-full px-3 py-1.5 text-[11px] font-medium uppercase leading-none tracking-[0.18em] text-silver-300 transition-colors hover:bg-electric/10 hover:text-electric"
                 >
                   {l.label}
                 </a>
@@ -71,7 +71,7 @@ export function Navbar() {
               <a
                 href={profile.resumeUrl}
                 download
-                className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-electric to-electric-glow px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-midnight shadow-[0_8px_24px_-8px_rgba(34,211,238,0.6)] transition hover:shadow-[0_12px_30px_-6px_rgba(34,211,238,0.9)] md:inline-flex"
+                className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-electric to-electric-glow px-4 py-2 text-[10.5px] font-semibold uppercase leading-none tracking-[0.22em] text-midnight shadow-[0_8px_24px_-8px_rgba(34,211,238,0.6)] transition hover:shadow-[0_12px_30px_-6px_rgba(34,211,238,0.9)] md:inline-flex"
               >
                 <Download size={14} strokeWidth={2.5} />
                 Resume

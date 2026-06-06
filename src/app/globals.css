@@ -22,6 +22,13 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
 html,
 body {
   margin: 0;
@@ -29,13 +36,16 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv11", "ss01", "ss03";
+  font-weight: 400;
+  letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
 }
 
 body {
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 ::selection {
@@ -57,6 +67,25 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #06b6d4, #3b82f6);
+}
+
+/* Typography hierarchy */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-space-grotesk), Sora, var(--font-inter), Inter, ui-sans-serif, system-ui;
+    color: #f1f5f9;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
 }
 
 /* Utilities */
@@ -81,7 +110,7 @@ body {
     color: transparent;
   }
   .text-gradient-silver {
-    background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 50%, #94a3b8 100%);
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 60%, #94a3b8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -112,6 +141,33 @@ body {
   }
   .no-scrollbar {
     scrollbar-width: none;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #67e8f9;
+  }
+  .label-mono {
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #67e8f9;
+  }
+  .heading-display {
+    font-family: var(--font-space-grotesk), Sora, var(--font-inter), Inter, ui-sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    color: #f1f5f9;
+    text-wrap: balance;
   }
 }
 
@@ -168,13 +224,20 @@ body {
 /* Section spacing helper */
 .section {
   position: relative;
-  padding-top: clamp(4rem, 8vw, 7rem);
-  padding-bottom: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(5rem, 9vw, 8rem);
+  padding-bottom: clamp(5rem, 9vw, 8rem);
 }
 
 .container-x {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1240px;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 3vw, 2rem);
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 920px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }

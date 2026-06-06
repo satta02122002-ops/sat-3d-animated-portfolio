@@ -11,17 +11,17 @@ export function RotatingTitles({ titles }: { titles: string[] }) {
   }, [titles.length]);
 
   return (
-    <div className="mt-3 flex h-9 items-center">
-      <span className="mr-3 font-mono text-[10px] uppercase tracking-[0.4em] text-silver-300">
+    <div className="mt-3 flex h-10 items-center gap-3">
+      <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-silver-300/80">
         Role
       </span>
-      <span className="mr-3 inline-block h-4 w-px bg-electric/40" />
+      <span className="inline-block h-4 w-px bg-electric/40" />
       <AnimatePresence mode="wait">
         <motion.span
           key={titles[i]}
-          initial={{ y: 20, opacity: 0, filter: "blur(8px)" }}
+          initial={{ y: 18, opacity: 0, filter: "blur(6px)" }}
           animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-          exit={{ y: -20, opacity: 0, filter: "blur(8px)" }}
+          exit={{ y: -18, opacity: 0, filter: "blur(6px)" }}
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="text-gradient font-display text-lg font-semibold tracking-tight sm:text-xl"
         >

@@ -78,7 +78,7 @@ function Card3D({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay }}
-      className="group relative overflow-hidden rounded-2xl glass p-6 transition-shadow hover:shadow-glow"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-7 transition-shadow hover:shadow-glow"
     >
       <div className="pointer-events-none absolute -top-px inset-x-0 h-px bg-gradient-to-r from-transparent via-electric/60 to-transparent" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-48 w-48 rounded-full bg-electric/15 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -86,31 +86,33 @@ function Card3D({
         <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-electric/20 to-blue-500/10 text-electric ring-1 ring-electric/30">
           <Icon size={22} strokeWidth={1.8} />
         </span>
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-            {project.company}
-          </p>
-          <h3 className="mt-1 font-display text-lg font-semibold text-silver-50">
+        <div className="min-w-0 flex-1">
+          <span className="label-mono">{project.company}</span>
+          <h3 className="mt-1.5 font-display text-[17px] font-semibold leading-tight tracking-tight text-silver-50">
             {project.title}
           </h3>
         </div>
       </div>
-      <p className="mt-4 text-sm leading-relaxed text-silver-300">{project.summary}</p>
-      <div className="mt-4 rounded-lg border border-electric/15 bg-electric/5 p-3">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-          Outcome
+      <p className="mt-5 text-[14px] leading-[1.7] text-silver-300">
+        {project.summary}
+      </p>
+      <div className="mt-5 rounded-xl border border-electric/15 bg-electric/[0.05] p-4">
+        <span className="label-mono">Outcome</span>
+        <p className="mt-1.5 text-[14px] leading-[1.65] text-silver-100">
+          {project.outcome}
         </p>
-        <p className="mt-1 text-sm text-silver-100">{project.outcome}</p>
       </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {project.stack.map((s) => (
-          <span
-            key={s}
-            className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-silver-200"
-          >
-            {s}
-          </span>
-        ))}
+      <div className="mt-auto pt-5">
+        <div className="flex flex-wrap gap-1.5">
+          {project.stack.map((s) => (
+            <span
+              key={s}
+              className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[9.5px] font-medium uppercase tracking-[0.15em] text-silver-200"
+            >
+              {s}
+            </span>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

@@ -23,7 +23,7 @@ export function About() {
           title="Operations Strategist · Automation Builder"
           description={profile.summary.split("Combines")[0]}
         />
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {aboutCards.map((card, i) => {
             const Icon = ICONS[card.icon] ?? Target;
             return (
@@ -34,16 +34,16 @@ export function About() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-2xl glass p-6 transition-shadow hover:shadow-glow"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-7 transition-shadow hover:shadow-glow"
               >
                 <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-electric/70 to-transparent opacity-60" />
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-electric/20 to-electric-glow/10 text-electric ring-1 ring-electric/30">
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-electric/20 to-electric-glow/10 text-electric ring-1 ring-electric/30">
                   <Icon size={22} strokeWidth={1.8} />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-silver-50">
+                <h3 className="font-display text-[17px] font-semibold leading-tight tracking-tight text-silver-50">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-silver-300">
+                <p className="mt-3 text-[14px] leading-[1.7] text-silver-300">
                   {card.description}
                 </p>
                 <span className="pointer-events-none absolute -bottom-12 -right-12 h-32 w-32 rounded-full bg-electric/15 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

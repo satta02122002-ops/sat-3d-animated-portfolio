@@ -64,21 +64,21 @@ export function CommandCenter() {
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 whileHover={{ y: -4 }}
-                className="group relative overflow-hidden rounded-xl glass p-4 transition-shadow hover:shadow-glow"
+                className="group relative overflow-hidden rounded-xl glass p-5 transition-shadow hover:shadow-glow"
               >
                 <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${p.accent} opacity-70`} />
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-2">
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-electric/10 text-electric ring-1 ring-electric/30">
                     <p.icon size={16} />
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-electric">
+                  <span className="font-mono text-[9.5px] font-medium uppercase leading-none tracking-[0.25em] text-electric">
                     {p.value}
                   </span>
                 </div>
-                <h4 className="mt-3 font-display text-sm font-semibold text-silver-50">
+                <h4 className="mt-4 font-display text-[13.5px] font-semibold leading-snug text-silver-50">
                   {p.label}
                 </h4>
-                <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-white/5">
+                <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/5">
                   <div className={`h-full w-[85%] rounded-full bg-gradient-to-r ${p.accent}`} />
                 </div>
               </motion.div>

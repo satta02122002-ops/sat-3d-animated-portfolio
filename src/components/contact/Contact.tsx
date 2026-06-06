@@ -54,15 +54,13 @@ export function Contact() {
               className="mt-5"
             />
             <div className="mt-5">
-              <label className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-                Message
-              </label>
+              <label className="label-mono">Message</label>
               <textarea
                 name="message"
                 required
                 rows={5}
                 placeholder="Tell me about the role or project..."
-                className="mt-2 w-full rounded-lg border border-white/10 bg-midnight/60 px-4 py-3 text-sm text-silver-50 outline-none transition focus:border-electric/60 focus:shadow-[0_0_0_3px_rgba(34,211,238,0.15)]"
+                className="mt-2.5 w-full resize-none rounded-lg border border-white/10 bg-midnight/60 px-4 py-3 text-[14px] leading-[1.65] text-silver-50 placeholder:text-silver-300/50 outline-none transition focus:border-electric/60 focus:shadow-[0_0_0_3px_rgba(34,211,238,0.15)]"
               />
             </div>
             <button
@@ -119,14 +117,12 @@ export function Contact() {
                   />
                 </svg>
               </div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-                Availability
-              </p>
-              <p className="mt-2 font-display text-base font-semibold text-silver-50">
+              <span className="label-mono">Availability</span>
+              <p className="mt-3 font-display text-[15.5px] font-semibold leading-snug tracking-tight text-silver-50">
                 Open to senior roles in supply chain operations, logistics coordination, and
                 inventory planning across the UAE.
               </p>
-              <p className="mt-2 text-sm text-silver-300">
+              <p className="mt-3 text-[13.5px] leading-[1.65] text-silver-300">
                 Notice period: standard 30 days · Open to relocation within UAE.
               </p>
             </div>
@@ -154,15 +150,13 @@ function Field({
 }) {
   return (
     <div className={className}>
-      <label className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-        {label}
-      </label>
+      <label className="label-mono">{label}</label>
       <input
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
-        className="mt-2 w-full rounded-lg border border-white/10 bg-midnight/60 px-4 py-3 text-sm text-silver-50 outline-none transition focus:border-electric/60 focus:shadow-[0_0_0_3px_rgba(34,211,238,0.15)]"
+        className="mt-2.5 w-full rounded-lg border border-white/10 bg-midnight/60 px-4 py-3 text-[14px] text-silver-50 placeholder:text-silver-300/50 outline-none transition focus:border-electric/60 focus:shadow-[0_0_0_3px_rgba(34,211,238,0.15)]"
       />
     </div>
   );
@@ -189,11 +183,9 @@ function ContactLink({
       <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-electric/10 text-electric ring-1 ring-electric/30 transition group-hover:bg-electric group-hover:text-midnight">
         {icon}
       </span>
-      <div className="flex-1">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-          {label}
-        </p>
-        <p className="mt-1 text-sm text-silver-50">{value}</p>
+      <div className="min-w-0 flex-1">
+        <span className="label-mono">{label}</span>
+        <p className="mt-1.5 truncate text-[14px] text-silver-50">{value}</p>
       </div>
       <span className="text-silver-300 transition group-hover:text-electric">→</span>
     </a>

@@ -68,39 +68,41 @@ export function Personal() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-electric">
-              Executive Profile
-            </span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-silver-50 sm:text-4xl">
+            <span className="label-mono">Executive Profile</span>
+            <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold tracking-[-0.025em] text-silver-50">
               {profile.name}
             </h2>
-            <p className="mt-2 text-base text-electric">{profile.title}</p>
-            <p className="text-sm text-silver-300">{profile.subtitle}</p>
+            <p className="mt-2 text-[15px] font-medium text-electric">
+              {profile.title}
+            </p>
+            <p className="mt-1 text-[13.5px] text-silver-300">
+              {profile.subtitle}
+            </p>
 
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
-                <MapPin size={16} className="text-electric" /> {profile.location}
+            <ul className="mt-7 grid gap-2.5 sm:grid-cols-2">
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3.5 text-[13.5px] text-silver-100">
+                <MapPin size={15} className="shrink-0 text-electric" /> {profile.location}
               </li>
-              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
-                <BadgeCheck size={16} className="text-electric" /> UAE Resident (Active)
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3.5 text-[13.5px] text-silver-100">
+                <BadgeCheck size={15} className="shrink-0 text-electric" /> UAE Resident (Active)
               </li>
-              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
-                <Phone size={16} className="text-electric" /> {profile.phone}
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3.5 text-[13.5px] text-silver-100">
+                <Phone size={15} className="shrink-0 text-electric" /> {profile.phone}
               </li>
-              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
-                <Mail size={16} className="text-electric" />
-                <a href={`mailto:${profile.email}`} className="hover:text-electric">
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3.5 text-[13.5px] text-silver-100">
+                <Mail size={15} className="shrink-0 text-electric" />
+                <a href={`mailto:${profile.email}`} className="truncate hover:text-electric">
                   {profile.email}
                 </a>
               </li>
-              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
-                <Linkedin size={16} className="text-electric" />
-                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-electric">
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3.5 text-[13.5px] text-silver-100">
+                <Linkedin size={15} className="shrink-0 text-electric" />
+                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="truncate hover:text-electric">
                   linkedin.com/in/sat-logistics
                 </a>
               </li>
-              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm">
-                <Languages size={16} className="text-electric" /> Tamil · English · Malayalam · Hindi
+              <li className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3.5 text-[13.5px] text-silver-100">
+                <Languages size={15} className="shrink-0 text-electric" /> Tamil · English · Malayalam · Hindi
               </li>
             </ul>
           </motion.div>

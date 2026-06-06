@@ -73,16 +73,14 @@ function KPIRing({
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-lg font-semibold text-silver-50">
+            <span className="font-display text-[17px] font-semibold tracking-tight text-silver-50">
               <Counter to={kpi.value} suffix={kpi.suffix} />
             </span>
           </div>
         </div>
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-            Metric
-          </p>
-          <p className="mt-1 font-display text-sm font-semibold text-silver-50">
+        <div className="min-w-0">
+          <span className="label-mono">Metric</span>
+          <p className="mt-1.5 font-display text-[13.5px] font-semibold leading-snug text-silver-50">
             {kpi.label}
           </p>
         </div>
@@ -105,14 +103,12 @@ function BarChart() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.6 }}
-      className="rounded-2xl glass p-6"
+      className="rounded-2xl glass p-7"
     >
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-            Throughput
-          </p>
-          <h4 className="mt-1 font-display text-base font-semibold text-silver-50">
+          <span className="label-mono">Throughput</span>
+          <h4 className="mt-1.5 font-display text-[15px] font-semibold tracking-tight text-silver-50">
             Inbound vs Outbound · Quarterly
           </h4>
         </div>
@@ -172,13 +168,11 @@ function LineChart() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.6, delay: 0.1 }}
-      className="rounded-2xl glass p-6"
+      className="rounded-2xl glass p-7"
     >
       <div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-electric">
-          Trend
-        </p>
-        <h4 className="mt-1 font-display text-base font-semibold text-silver-50">
+        <span className="label-mono">Trend</span>
+        <h4 className="mt-1.5 font-display text-[15px] font-semibold tracking-tight text-silver-50">
           Inventory Accuracy · 10-Week Trail
         </h4>
       </div>

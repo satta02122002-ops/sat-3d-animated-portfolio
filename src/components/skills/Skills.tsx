@@ -16,7 +16,7 @@ export function Skills() {
           description="Each panel measures fluency from years of hands-on operations — calibrated against on-the-job results, not theoretical familiarity."
         />
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {skillsGroups.map((group, gi) => (
             <motion.div
               key={group.category}
@@ -24,29 +24,31 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.55, delay: gi * 0.08 }}
-              className="relative overflow-hidden rounded-2xl glass p-6"
+              className="relative flex h-full flex-col overflow-hidden rounded-2xl glass p-7"
             >
               {/* Scan line */}
-              <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-30">
+              <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-25">
                 <div className="absolute inset-x-0 h-px bg-electric/50 animate-scan-line" />
               </div>
-              <div className="mb-5 flex items-center justify-between">
-                <h3 className="font-display text-base font-semibold uppercase tracking-[0.15em] text-silver-50">
+              <div className="mb-6 flex items-center justify-between">
+                <h3 className="font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-silver-50">
                   {group.category}
                 </h3>
                 <span
                   className={cn(
-                    "h-2 w-12 rounded-full bg-gradient-to-r",
+                    "h-1.5 w-10 rounded-full bg-gradient-to-r",
                     group.accent,
                   )}
                 />
               </div>
-              <ul className="space-y-4">
+              <ul className="flex flex-1 flex-col gap-4">
                 {group.items.map((item, i) => (
                   <li key={item.name}>
-                    <div className="mb-1.5 flex items-center justify-between text-sm">
-                      <span className="text-silver-100">{item.name}</span>
-                      <span className="font-mono text-[11px] text-electric">
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="text-[13.5px] text-silver-100">
+                        {item.name}
+                      </span>
+                      <span className="font-mono text-[10.5px] font-medium tracking-wide text-electric">
                         {item.level}%
                       </span>
                     </div>

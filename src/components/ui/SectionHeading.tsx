@@ -21,7 +21,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-12 flex flex-col gap-4",
+        "mb-14 flex flex-col gap-5 sm:mb-16",
         align === "center" ? "items-center text-center" : "items-start text-left",
         className,
       )}
@@ -32,7 +32,7 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/5 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.35em] text-electric"
+          className="inline-flex items-center gap-2 rounded-full border border-electric/25 bg-electric/[0.06] px-4 py-1.5 font-mono text-[10px] font-medium uppercase leading-none tracking-[0.4em] text-electric/90"
         >
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-electric" />
           {eyebrow}
@@ -43,7 +43,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay: 0.05 }}
-        className="font-display text-3xl font-semibold leading-tight tracking-tight text-silver-50 sm:text-4xl md:text-5xl"
+        className="heading-display text-balance text-[clamp(1.875rem,3.5vw,3rem)] font-semibold"
       >
         {title}
       </motion.h2>
@@ -53,7 +53,10 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-2xl text-base leading-relaxed text-silver-300 sm:text-lg"
+          className={cn(
+            "max-w-2xl text-pretty text-[15px] leading-[1.7] text-silver-300 sm:text-base",
+            align === "center" && "mx-auto",
+          )}
         >
           {description}
         </motion.p>

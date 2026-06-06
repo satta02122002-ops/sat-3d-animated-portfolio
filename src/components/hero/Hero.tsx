@@ -18,7 +18,10 @@ const Globe3D = dynamic(() => import("./Globe3D").then((m) => m.Globe3D), {
 
 export function Hero() {
   return (
-    <section id="top" className="relative isolate min-h-screen overflow-hidden">
+    <section
+      id="top"
+      className="relative isolate flex min-h-screen items-center overflow-hidden"
+    >
       {/* Background grid + radial glow */}
       <div className="absolute inset-0 -z-20 grid-bg opacity-40" />
       <div className="absolute inset-0 -z-20 bg-radial-fade" />
@@ -30,63 +33,70 @@ export function Hero() {
         <div className="absolute inset-0 mx-auto h-full w-full max-w-[1500px]">
           <Globe3D />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight/40" />
       </div>
 
-      <div className="container-x relative flex min-h-screen items-center pb-20 pt-32">
+      <div className="container-x relative w-full pb-24 pt-36 md:pt-32">
         <div className="max-w-3xl">
+          {/* Status pill */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/5 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.35em] text-electric backdrop-blur-md"
+            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-electric/25 bg-electric/[0.06] px-3.5 py-1.5 font-mono text-[10px] font-medium uppercase leading-none tracking-[0.4em] text-electric/90 backdrop-blur-md"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-electric shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
             Live · Dubai → Global Logistics Grid
           </motion.div>
 
+          {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-silver-50 sm:text-5xl md:text-6xl lg:text-7xl"
+            className="heading-display text-balance text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold tracking-[-0.03em]"
           >
-            <span className="block text-gradient-silver">{heroCopy.headline.split("Through")[0]}</span>
-            <span className="mt-2 block text-gradient">Through Operational Excellence</span>
+            <span className="block text-gradient-silver">
+              Transforming Global Supply Chains
+            </span>
+            <span className="mt-2 block text-gradient">
+              Through Operational Excellence
+            </span>
           </motion.h1>
 
+          {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-silver-300 sm:text-lg"
+            className="mt-7 max-w-[640px] text-pretty text-[15px] leading-[1.75] text-silver-200/90 sm:text-[17px]"
           >
             {heroCopy.subheadline}
           </motion.p>
 
+          {/* Identity block */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-7"
+            className="mt-10"
           >
-            <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-electric">
-              Identity
-            </span>
-            <div className="mt-2">
-              <h2 className="font-display text-2xl font-semibold tracking-[0.2em] text-silver-50 sm:text-3xl">
-                SATTANATHAN
+            <span className="label-mono">Identity</span>
+            <div className="mt-3">
+              <h2 className="font-display text-2xl font-semibold uppercase tracking-[0.22em] text-silver-50 sm:text-[28px]">
+                Sattanathan
               </h2>
               <RotatingTitles titles={profile.roles} />
             </div>
           </motion.div>
 
+          {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-10 flex flex-wrap items-center gap-3 sm:gap-4"
           >
             <MagneticButton
               href={profile.resumeUrl}
@@ -112,20 +122,29 @@ export function Hero() {
             </MagneticButton>
           </motion.div>
 
-          <motion.div
+          {/* Stats strip */}
+          <motion.dl
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-[11px] uppercase tracking-[0.3em] text-silver-300"
+            className="mt-14 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-5 border-t border-white/10 pt-6 sm:grid-cols-4"
           >
-            <span><span className="text-electric">99%+</span> Inventory Accuracy</span>
-            <span className="hidden h-3 w-px bg-white/15 sm:inline" />
-            <span><span className="text-electric">98%</span> On-Time Delivery</span>
-            <span className="hidden h-3 w-px bg-white/15 sm:inline" />
-            <span><span className="text-electric">10+</span> Global Clients</span>
-            <span className="hidden h-3 w-px bg-white/15 sm:inline" />
-            <span><span className="text-electric">Zero</span> Customs Holds</span>
-          </motion.div>
+            {[
+              { value: "99%+", label: "Inventory Accuracy" },
+              { value: "98%", label: "On-Time Delivery" },
+              { value: "10+", label: "Global Clients" },
+              { value: "Zero", label: "Customs Holds" },
+            ].map((s) => (
+              <div key={s.label}>
+                <dt className="font-display text-xl font-semibold text-electric">
+                  {s.value}
+                </dt>
+                <dd className="mt-1 font-mono text-[10px] uppercase leading-tight tracking-[0.25em] text-silver-300">
+                  {s.label}
+                </dd>
+              </div>
+            ))}
+          </motion.dl>
         </div>
       </div>
 
