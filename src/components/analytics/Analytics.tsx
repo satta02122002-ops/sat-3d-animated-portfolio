@@ -23,8 +23,7 @@ export function Analytics() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <BarChart />
+        <div className="mt-10">
           <LineChart />
         </div>
       </div>
@@ -89,65 +88,6 @@ function KPIRing({
   );
 }
 
-function BarChart() {
-  const data = [
-    { label: "Q1", in: 68, out: 60 },
-    { label: "Q2", in: 78, out: 72 },
-    { label: "Q3", in: 84, out: 80 },
-    { label: "Q4", in: 92, out: 88 },
-    { label: "Q5", in: 96, out: 94 },
-  ];
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.6 }}
-      className="rounded-2xl glass p-7"
-    >
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span className="label-mono">Throughput</span>
-          <h4 className="mt-1.5 font-display text-[15px] font-semibold tracking-tight text-silver-50">
-            Inbound vs Outbound · Quarterly
-          </h4>
-        </div>
-        <div className="flex items-center gap-4 text-xs text-silver-300">
-          <span className="flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-sm bg-electric" /> Inbound
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-sm bg-indigo-400" /> Outbound
-          </span>
-        </div>
-      </div>
-      <div className="mt-6 flex h-44 items-end gap-3">
-        {data.map((d, i) => (
-          <div key={d.label} className="flex flex-1 flex-col items-center gap-2">
-            <div className="flex h-full w-full items-end justify-center gap-1.5">
-              <motion.div
-                initial={{ height: 0 }}
-                whileInView={{ height: `${d.in}%` }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.9, delay: i * 0.08 }}
-                className="w-3 rounded-t bg-gradient-to-t from-electric/40 to-electric shadow-[0_0_15px_rgba(34,211,238,0.6)]"
-              />
-              <motion.div
-                initial={{ height: 0 }}
-                whileInView={{ height: `${d.out}%` }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.9, delay: i * 0.08 + 0.1 }}
-                className="w-3 rounded-t bg-gradient-to-t from-indigo-500/40 to-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.6)]"
-              />
-            </div>
-            <span className="font-mono text-[10px] text-silver-300">{d.label}</span>
-          </div>
-        ))}
-      </div>
-    </motion.div>
-  );
-}
-
 function LineChart() {
   const points = [85, 88, 92, 90, 95, 96, 98, 97, 99, 99];
   const width = 360;
@@ -177,7 +117,7 @@ function LineChart() {
         </h4>
       </div>
       <div className="mt-6 overflow-hidden">
-        <svg viewBox={`0 0 ${width} ${height}`} className="h-44 w-full">
+        <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-56 w-full sm:h-64">
           <defs>
             <linearGradient id="lineFill" x1="0" x2="0" y1="0" y2="1">
               <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.45" />
