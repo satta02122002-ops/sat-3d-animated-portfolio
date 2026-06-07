@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Linkedin, Mail, MapPin, Phone, Languages, BadgeCheck } from "lucide-react";
 import { profile } from "@/data/portfolio";
 
@@ -31,28 +32,32 @@ export function Personal() {
               }}
             />
             <div className="absolute inset-[2px] overflow-hidden rounded-[1.95rem] glass-strong">
-              {/* Initials avatar (no remote image dependency) */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-navy via-midnight to-navy-50">
-                <div className="relative">
-                  <motion.div
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute -inset-8 rounded-full bg-electric/20 blur-3xl"
-                  />
-                  <div className="relative flex h-44 w-44 items-center justify-center rounded-full bg-gradient-to-br from-electric to-electric-glow font-display text-6xl font-bold text-midnight shadow-[0_20px_60px_-10px_rgba(34,211,238,0.6)]">
-                    SC
-                  </div>
-                </div>
-              </div>
+              {/* Glow halo behind the photo */}
+              <motion.div
+                animate={{ scale: [1, 1.06, 1], opacity: [0.6, 0.85, 0.6] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute inset-8 rounded-full bg-electric/25 blur-3xl"
+              />
+              {/* Profile photo */}
+              <Image
+                src="/profile.jpg"
+                alt={`${profile.name} — ${profile.title}`}
+                fill
+                priority
+                sizes="(max-width: 768px) 300px, 400px"
+                className="object-cover"
+              />
+              {/* Subtle vignette so HUD reads on any photo */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-midnight/40 via-transparent to-midnight/70" />
               {/* HUD overlay */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute left-3 top-3 font-mono text-[9px] uppercase tracking-[0.3em] text-electric">
+                <div className="absolute left-3 top-3 font-mono text-[9px] uppercase tracking-[0.3em] text-electric drop-shadow-[0_1px_4px_rgba(2,6,23,0.9)]">
                   ID · SC-001
                 </div>
-                <div className="absolute right-3 top-3 flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.3em] text-electric">
+                <div className="absolute right-3 top-3 flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.3em] text-electric drop-shadow-[0_1px_4px_rgba(2,6,23,0.9)]">
                   <span className="h-1 w-1 animate-pulse rounded-full bg-electric" /> Online
                 </div>
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.3em] text-electric">
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.3em] text-electric drop-shadow-[0_1px_4px_rgba(2,6,23,0.9)]">
                   <span>Dubai · 25.20°N</span>
                   <span>55.27°E</span>
                 </div>

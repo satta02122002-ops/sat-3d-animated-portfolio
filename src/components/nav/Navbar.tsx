@@ -47,9 +47,13 @@ export function Navbar() {
               scrolled ? "glass-strong shadow-executive" : "glass",
             )}
           >
-            <a href="#top" className="group flex items-center gap-2 pl-2">
-              <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-electric to-electric-glow text-midnight font-display text-sm font-bold">
-                SC
+            <a href="#top" className="group flex items-center gap-2.5 pl-2">
+              <span className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full ring-1 ring-electric/40">
+                <img
+                  src="/profile.jpg"
+                  alt={profile.name}
+                  className="h-full w-full object-cover"
+                />
                 <span className="absolute inset-0 -z-10 rounded-full bg-electric/30 blur-md transition group-hover:blur-lg" />
               </span>
               <span className="hidden font-display text-sm font-semibold tracking-wide text-silver-50 sm:inline">

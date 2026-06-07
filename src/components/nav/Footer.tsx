@@ -7,8 +7,12 @@ export function Footer() {
       <div className="container-x grid gap-10 py-14 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-electric to-electric-glow font-display text-sm font-bold text-midnight">
-              SC
+            <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full ring-1 ring-electric/40">
+              <img
+                src="/profile.jpg"
+                alt={profile.name}
+                className="h-full w-full object-cover"
+              />
             </span>
             <span className="font-display text-[15px] font-semibold tracking-tight text-silver-50">
               {profile.name}
