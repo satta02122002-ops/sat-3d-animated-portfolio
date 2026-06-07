@@ -76,7 +76,7 @@ body {
   h3,
   h4,
   h5 {
-    font-family: var(--font-space-grotesk), Sora, var(--font-inter), Inter, ui-sans-serif, system-ui;
+    font-family: var(--font-display), Manrope, var(--font-inter), Inter, ui-sans-serif, system-ui;
     color: #f1f5f9;
     letter-spacing: -0.02em;
     line-height: 1.15;
@@ -162,7 +162,7 @@ body {
     color: #67e8f9;
   }
   .heading-display {
-    font-family: var(--font-space-grotesk), Sora, var(--font-inter), Inter, ui-sans-serif;
+    font-family: var(--font-display), Manrope, var(--font-inter), Inter, ui-sans-serif;
     font-weight: 600;
     letter-spacing: -0.025em;
     line-height: 1.08;

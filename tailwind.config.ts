@@ -40,7 +40,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-space-grotesk)", "Space Grotesk", "Inter", "ui-sans-serif"],
+        display: ["var(--font-display)", "Manrope", "Inter", "ui-sans-serif"],
         mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "ui-monospace"],
       },
       backgroundImage: {
