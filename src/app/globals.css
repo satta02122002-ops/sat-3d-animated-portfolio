@@ -209,6 +209,41 @@ body {
   }
 }
 
+/* Base orb shapes (mobile defaults; md: utilities override on desktop) */
+.hero-orb {
+  border-radius: 9999px;
+  height: 18rem;
+  width: 18rem;
+  filter: blur(40px);
+}
+.hero-orb-cyan {
+  background-color: rgba(34, 211, 238, 0.16);
+}
+.hero-orb-indigo {
+  background-color: rgba(99, 102, 241, 0.16);
+}
+
+/* Mobile performance — tame expensive blurs and glass effects */
+@media (max-width: 767px) {
+  .glass {
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    background: rgba(11, 28, 58, 0.55);
+  }
+  .glass-strong {
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    background: rgba(11, 28, 58, 0.7);
+  }
+  .grid-bg {
+    background-size: 40px 40px;
+  }
+  /* Pause decorative scan-line so it doesn't keep repainting */
+  .animate-scan-line {
+    animation-play-state: paused;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -104,11 +104,15 @@ function Container({ x, z, hue }: { x: number; z: number; hue: string }) {
 }
 
 export function WarehouseScene() {
+  const mobile =
+    typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+
   return (
     <Canvas
       camera={{ position: [4.5, 3, 5.5], fov: 45 }}
-      dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true }}
+      dpr={mobile ? [1, 1.25] : [1, 2]}
+      gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+      performance={{ min: 0.5 }}
     >
       <color attach="background" args={["#020617"]} />
       <ambientLight intensity={0.45} />

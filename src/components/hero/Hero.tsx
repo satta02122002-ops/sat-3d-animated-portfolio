@@ -6,6 +6,7 @@ import { Download, ExternalLink, Mail } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { heroCopy, profile } from "@/data/portfolio";
 import { RotatingTitles } from "./RotatingTitles";
+import { useInViewport } from "@/lib/useInViewport";
 
 const Globe3D = dynamic(() => import("./Globe3D").then((m) => m.Globe3D), {
   ssr: false,
@@ -17,21 +18,24 @@ const Globe3D = dynamic(() => import("./Globe3D").then((m) => m.Globe3D), {
 });
 
 export function Hero() {
+  const { ref: heroRef, inView } = useInViewport<HTMLElement>({ rootMargin: "0px" });
+
   return (
     <section
+      ref={heroRef}
       id="top"
       className="relative isolate flex min-h-screen items-center overflow-hidden"
     >
       {/* Background grid + radial glow */}
       <div className="absolute inset-0 -z-20 grid-bg opacity-40" />
       <div className="absolute inset-0 -z-20 bg-radial-fade" />
-      <div className="absolute -left-32 top-1/3 -z-10 h-[36rem] w-[36rem] rounded-full bg-electric/10 blur-[120px]" />
-      <div className="absolute -right-32 bottom-0 -z-10 h-[30rem] w-[30rem] rounded-full bg-indigo-500/10 blur-[120px]" />
+      <div className="absolute -left-32 top-1/3 -z-10 hero-orb hero-orb-cyan md:h-[36rem] md:w-[36rem] md:blur-[120px]" />
+      <div className="absolute -right-32 bottom-0 -z-10 hero-orb hero-orb-indigo md:h-[30rem] md:w-[30rem] md:blur-[120px]" />
 
-      {/* 3D Globe absolute layer */}
+      {/* 3D Globe absolute layer — only mounted while hero is in view */}
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-90 md:pointer-events-auto md:opacity-100">
         <div className="absolute inset-0 mx-auto h-full w-full max-w-[1500px]">
-          <Globe3D />
+          {inView && <Globe3D />}
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight/40" />
